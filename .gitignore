@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+dist/
+public/dist/
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# Editor artifacts
+.cursor/
+.claude/
+
+# Development artifacts
+*.excalidraw
+
+docs/

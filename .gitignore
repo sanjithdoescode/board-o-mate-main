@@ -19,4 +19,6 @@ public/dist/
 # Development artifacts
 *.excalidraw
 
+venv/
+
 docs/

@@ -403,7 +403,7 @@ function App(): JSX.Element {
     <div className="app">
       {/* Header */}
       <div className="header">
-        <h1>Excalidraw Canvas</h1>
+        <h1>Board-O-Mate Canvas</h1>
         <div className="controls">
           <div className="status">
             <div className={`status-dot ${isConnected ? 'status-connected' : 'status-disconnected'}`}></div>

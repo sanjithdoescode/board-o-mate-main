@@ -1,4 +1,4 @@
-# Production stage - MCP Backend Only
+# Production stage - MCP Backend Only (Board-O-Mate)
 FROM node:18-slim
 
 # Create non-root user for security

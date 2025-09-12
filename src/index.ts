@@ -205,7 +205,7 @@ const ResourceSchema = z.object({
 const tools: Tool[] = [
   {
     name: 'create_element',
-    description: 'Create a new Excalidraw element',
+    description: 'Create a new Board-O-Mate element',
     inputSchema: {
       type: 'object',
       properties: {
@@ -231,7 +231,7 @@ const tools: Tool[] = [
   },
   {
     name: 'update_element',
-    description: 'Update an existing Excalidraw element',
+    description: 'Update an existing Board-O-Mate element',
     inputSchema: {
       type: 'object',
       properties: {
@@ -258,7 +258,7 @@ const tools: Tool[] = [
   },
   {
     name: 'delete_element',
-    description: 'Delete an Excalidraw element',
+    description: 'Delete a Board-O-Mate element',
     inputSchema: {
       type: 'object',
       properties: {
@@ -269,7 +269,7 @@ const tools: Tool[] = [
   },
   {
     name: 'query_elements',
-    description: 'Query Excalidraw elements with optional filters',
+    description: 'Query Board-O-Mate elements with optional filters',
     inputSchema: {
       type: 'object',
       properties: {
@@ -286,7 +286,7 @@ const tools: Tool[] = [
   },
   {
     name: 'get_resource',
-    description: 'Get an Excalidraw resource',
+    description: 'Get a Board-O-Mate resource',
     inputSchema: {
       type: 'object',
       properties: {
@@ -389,7 +389,7 @@ const tools: Tool[] = [
   },
   {
     name: 'batch_create_elements',
-    description: 'Create multiple Excalidraw elements at once - ideal for complex diagrams',
+    description: 'Create multiple Board-O-Mate elements at once - ideal for complex diagrams',
     inputSchema: {
       type: 'object',
       properties: {
@@ -427,9 +427,9 @@ const tools: Tool[] = [
 // Initialize MCP server
 const server = new Server(
   {
-    name: "mcp-excalidraw-server",
+    name: "mcp-board-o-mate-server",
     version: "1.0.2",
-    description: "Advanced MCP server for Excalidraw with real-time canvas"
+    description: "Advanced MCP server for Board-O-Mate with real-time canvas"
   },
   {
     capabilities: {
@@ -815,7 +815,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 // Start server with transport based on mode
 async function runServer(): Promise<void> {
   try {
-    logger.info('Starting Excalidraw MCP server...');
+    logger.info('Starting Board-O-Mate MCP server...');
     
     const transportMode = process.env.MCP_TRANSPORT_MODE || 'stdio';
     let transport;
@@ -837,7 +837,7 @@ async function runServer(): Promise<void> {
     logger.debug('Connecting to transport...');
     
     await server.connect(transport);
-    logger.info(`Excalidraw MCP server running on ${transportMode}`);
+    logger.info(`Board-O-Mate MCP server running on ${transportMode}`);
     
     // Keep the process running
     process.stdin.resume();

@@ -1,6 +1,6 @@
-# MCP Excalidraw Server: Advanced Live Visual Diagramming with AI Integration
+# MCP Board-O-Mate Server: Advanced Live Visual Diagramming with AI Integration
 
-A comprehensive **TypeScript-based** system that combines **Excalidraw's powerful drawing capabilities** with **Model Context Protocol (MCP)** integration, enabling AI agents to create and manipulate diagrams in real-time on a live canvas.
+A comprehensive **TypeScript-based** system that combines **Board-O-Mate's powerful canvas (powered by Excalidraw)** with **Model Context Protocol (MCP)** integration, enabling AI agents to create and manipulate diagrams in real-time on a live canvas.
 
 ## 🚦 Current Status & Version Information
 
@@ -23,7 +23,7 @@ For the most stable experience, we recommend using the local development setup. 
 
 ## 🚀 What This System Does
 
-- **🎨 Live Canvas**: Real-time Excalidraw canvas accessible via web browser
+- **🎨 Live Canvas**: Real-time Board-O-Mate canvas accessible via web browser
 - **🤖 AI Integration**: MCP server allows AI agents (like Claude) to create visual diagrams
 - **⚡ Real-time Sync**: Elements created via MCP API appear instantly on the canvas
 - **🔄 WebSocket Updates**: Live synchronization across multiple connected clients
@@ -31,9 +31,9 @@ For the most stable experience, we recommend using the local development setup. 
 
 ## 🎥 Demo Video
 
-> **See MCP Excalidraw in Action!**
+> **See MCP Board-O-Mate in Action!**
 
-[![MCP Excalidraw Demo](https://img.youtube.com/vi/RRN7AF7QIew/maxresdefault.jpg)](https://youtu.be/RRN7AF7QIew)
+[![MCP Board-O-Mate Demo](https://img.youtube.com/vi/RRN7AF7QIew/maxresdefault.jpg)](https://youtu.be/RRN7AF7QIew)
 
 *Watch how AI agents create and manipulate diagrams in real-time on the live canvas*
 
@@ -90,8 +90,8 @@ For the most stable experience, we recommend using the local development setup. 
 
 #### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yctimlin/mcp_excalidraw.git
-cd mcp_excalidraw
+git clone https://github.com/yctimlin/mcp_board_o_mate.git
+cd mcp_board_o_mate
 npm install
 ```
 
@@ -125,14 +125,14 @@ http://localhost:3000
 #### **NPM Package (Beta)**
 ```bash
 # Currently debugging tool registration - feedback welcome!
-npm install -g mcp-excalidraw-server
-npx mcp-excalidraw-server
+npm install -g mcp-board-o-mate-server
+npx mcp-board-o-mate-server
 ```
 
 #### **Docker Version (Coming Soon)**
 ```bash
 # Canvas sync improvements in progress
-docker run -p 3000:3000 mcp-excalidraw-server
+docker run -p 3000:3000 mcp-board-o-mate-server
 ```
 
 ## 🔧 Available Scripts
@@ -232,15 +232,15 @@ For the **local development version** (most stable), add this configuration to y
 ```json
 {
   "mcpServers": {
-    "excalidraw": {
+    "mcp_board_o_mate": {
       "command": "node",
-      "args": ["/absolute/path/to/mcp_excalidraw/dist/index.js"]
+      "args": ["/absolute/path/to/mcp_board_o_mate/dist/index.js"]
     }
   }
 }
 ```
 
-**Important**: Replace `/absolute/path/to/mcp_excalidraw` with the actual absolute path to your cloned repository. Note that the path now points to `dist/index.js` (the compiled TypeScript output).
+**Important**: Replace `/absolute/path/to/mcp_board_o_mate` with the actual absolute path to your cloned repository. Note that the path now points to `dist/index.js` (the compiled TypeScript output).
 
 ### **🔧 Alternative Configurations (Beta)**
 
@@ -248,9 +248,9 @@ For the **local development version** (most stable), add this configuration to y
 ```json
 {
   "mcpServers": {
-    "excalidraw": {
+    "mcp_board_o_mate": {
       "command": "npx",
-      "args": ["-y", "mcp-excalidraw-server"]
+      "args": ["-y", "mcp-board-o-mate-server"]
     }
   }
 }
@@ -261,9 +261,9 @@ For the **local development version** (most stable), add this configuration to y
 ```json
 {
   "mcpServers": {
-    "excalidraw": {
+    "mcp_board_o_mate": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "mcp-excalidraw-server"]
+      "args": ["run", "-i", "--rm", "mcp-board-o-mate-server"]
     }
   }
 }
@@ -279,9 +279,9 @@ Add to your `.cursor/mcp.json`:
 ```json
 {
   "mcpServers": {
-    "excalidraw": {
+    "mcp_board_o_mate": {
       "command": "node",
-      "args": ["/absolute/path/to/mcp_excalidraw/dist/index.js"]
+      "args": ["/absolute/path/to/mcp_board_o_mate/dist/index.js"]
     }
   }
 }
@@ -295,9 +295,9 @@ For VS Code MCP extension, add to your settings:
 {
   "mcp": {
     "servers": {
-      "excalidraw": {
+      "mcp_board_o_mate": {
         "command": "node",
-        "args": ["/absolute/path/to/mcp_excalidraw/dist/index.js"]
+        "args": ["/absolute/path/to/mcp_board_o_mate/dist/index.js"]
       }
     }
   }
@@ -330,7 +330,7 @@ The canvas server provides these REST endpoints:
 ## 🎨 MCP Tools Available
 
 ### **Element Management**
-- `create_element` - Create any type of Excalidraw element
+- `create_element` - Create any type of Board-O-Mate element
 - `update_element` - Modify existing elements
 - `delete_element` - Remove elements
 - `query_elements` - Search elements with filters
@@ -412,7 +412,7 @@ The canvas server provides these REST endpoints:
 ## 📋 Project Structure
 
 ```
-mcp_excalidraw/
+mcp_board_o_mate/
 ├── frontend/
 │   ├── src/
 │   │   ├── App.tsx          # Main React component (TypeScript)

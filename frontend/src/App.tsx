@@ -638,6 +638,7 @@ function App(): JSX.Element {
           onSendMessage={handleSendMessage}
           messages={chatMessages}
           isProcessingAI={isProcessingAI}
+          onAddMessage={(message) => setChatMessages(prev => [...prev, message])}
         />
       )}
     </div>

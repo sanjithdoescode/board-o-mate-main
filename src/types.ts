@@ -175,7 +175,8 @@ export type WebSocketMessageType =
   | 'element_deleted'
   | 'elements_batch_created'
   | 'elements_synced'
-  | 'sync_status';
+  | 'sync_status'
+  | 'chat_message';
 
 export interface InitialElementsMessage extends WebSocketMessage {
   type: 'initial_elements';
@@ -206,6 +207,18 @@ export interface SyncStatusMessage extends WebSocketMessage {
   type: 'sync_status';
   elementCount: number;
   timestamp: string;
+}
+
+export interface ChatMessageData {
+  id: string;
+  text: string;
+  timestamp: string;
+  sender: 'user' | 'system' | 'ai';
+}
+
+export interface ChatMessage extends WebSocketMessage {
+  type: 'chat_message';
+  message: ChatMessageData;
 }
 
 // In-memory storage for Excalidraw elements

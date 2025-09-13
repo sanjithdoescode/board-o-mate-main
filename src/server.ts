@@ -18,7 +18,9 @@ import {
   ElementDeletedMessage,
   BatchCreatedMessage,
   SyncStatusMessage,
-  InitialElementsMessage
+  InitialElementsMessage,
+  ChatMessage,
+  ChatMessageData
 } from './types.js';
 import { z } from 'zod';
 import WebSocket from 'ws';
@@ -75,6 +77,33 @@ wss.on('connection', (ws: WebSocket) => {
     timestamp: new Date().toISOString()
   };
   ws.send(JSON.stringify(syncMessage));
+
+  // Handle incoming messages
+  ws.on('message', (data: Buffer) => {
+    try {
+      const message = JSON.parse(data.toString());
+      
+      // Handle chat messages
+      if (message.type === 'chat_message' && message.message) {
+        logger.info('Chat message received:', message.message);
+        
+        // Broadcast chat message to all other clients
+        const chatMessage: ChatMessage = {
+          type: 'chat_message',
+          message: message.message
+        };
+        
+        // Broadcast to all clients except the sender
+        clients.forEach(client => {
+          if (client !== ws && client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify(chatMessage));
+          }
+        });
+      }
+    } catch (error) {
+      logger.error('Error processing WebSocket message:', error);
+    }
+  });
   
   ws.on('close', () => {
     clients.delete(ws);
